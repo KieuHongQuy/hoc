@@ -1,0 +1,16 @@
+RewriteEngine On
+DirectoryIndex index.php
+ErrorDocument 400     /400.php
+ErrorDocument 401     /401.php
+ErrorDocument 403     /403.php
+ErrorDocument 404     /404.php
+ErrorDocument 500     /500.php
+
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?controller=$1&idlist=$2&idcat=$3&iditem=$4 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?controller=$1&idlist=$2&idcat=$3 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)$ index.php?controller=$1&idlist=$2 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+)-([0-9]+).html$ index.php?controller=$1&ten=$2&id=$3 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)/([a-zA-Z0-9_-]+).html$ index.php?controller=$1&ten=$2 [L]
+RewriteRule ^([a-zA-Z0-9_-]+).html$ index.php?controller=all&ten=$1 [L]
+RewriteRule ^([a-zA-Z0-9_-]+)$ index.php?controller=$1 [L]
+
